@@ -33,6 +33,34 @@ const FormInputs: React.FC<Props> = ({ data, handleChange }) => {
         onChange={handleChange}
         name="contact"
       />
+      <input
+        type="text"
+        placeholder="Enter Electricans Name"
+        value={data.worker}
+        onChange={handleChange}
+        name="worker"
+      />
+      <input
+        type="text"
+        placeholder="Enter Electricians Registration Number"
+        value={data.regNum}
+        onChange={handleChange}
+        name="regNum"
+      />
+      <input
+        type="text"
+        placeholder="Enter Electricians Phone Number"
+        value={data.phoneNum}
+        onChange={handleChange}
+        name="phoneNum"
+      />
+      <input
+        type="text"
+        placeholder="Enter Electricians Email Address"
+        value={data.email}
+        onChange={handleChange}
+        name="email"
+      />
     </div>
   )
 }

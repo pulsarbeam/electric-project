@@ -9,6 +9,10 @@ function Form() {
     ref: '',
     location: '',
     contact: '',
+    worker: '',
+    regNum: 0,
+    phoneNum: 0,
+    email: '',
   })
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
