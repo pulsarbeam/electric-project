@@ -1,4 +1,4 @@
-export interface Props {
+export interface FormValues {
   data: {
     ref: string
     location: string
@@ -8,5 +8,5 @@ export interface Props {
     phoneNum: number
     email: string
   }
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  isChecked: boolean
 }
