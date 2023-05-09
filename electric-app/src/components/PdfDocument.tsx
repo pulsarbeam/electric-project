@@ -1,10 +1,10 @@
 import { Document, Page, Text, pdf, View } from '@react-pdf/renderer'
 import { FormValues } from '../models'
-
+import { styles } from '../formstyles'
 function PdfDocument({ data, isChecked }: FormValues) {
   return (
     <Document>
-      <Page>
+      <Page style={styles.page}>
         <Text>Referance/Certificate ID No: {data.ref}</Text>
         <Text>Location Details: {data.location}</Text>
         <Text>Contact Details: {data.contact}</Text>

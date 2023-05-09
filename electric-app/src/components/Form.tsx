@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { pdf } from '@react-pdf/renderer'
-import { styles } from '../formstyles'
+
 import PdfDocument from './PdfDocument'
 import { FormValues } from '../models'
 
