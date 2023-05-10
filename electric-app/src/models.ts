@@ -9,6 +9,10 @@ export interface FormValues {
     email: string
     aeName: string
     aeRegNum: number
+    hrWork: string
+    standards: string
+    dateRange: string
+    supplySystem: string
   }
   checkboxStates: boolean[]
 }

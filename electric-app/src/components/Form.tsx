@@ -3,21 +3,14 @@ import { pdf } from '@react-pdf/renderer'
 
 import PdfDocument from './PdfDocument'
 import { FormValues } from '../models'
+import { labels } from '../labels'
 
 function Form() {
   const formRef = useRef<HTMLFormElement>(null)
-  const [isChecked, setIsChecked] = useState(false)
 
-  const labels = [
-    'Alteration',
-    'Addition',
-    'New Work',
-    'Low Risk',
-    'General',
-    'High Risk',
-  ]
-
-  const [checkboxStates, setCheckboxStates] = useState(new Array(6).fill(false))
+  const [checkboxStates, setCheckboxStates] = useState(
+    new Array(24).fill(false)
+  )
 
   const handleCheckboxChange = (index: number) => {
     const newCheckboxStates = [...checkboxStates]
@@ -120,11 +113,11 @@ function Form() {
             />
           </div>
         </div>
-        <div className="border-2 border-slate-400 rounded-xl px-3  my-5">
+        <div className="border-2 border-slate-400 rounded-xl p-3  my-5 m">
           <h3 className="text-xl font-bold">Certificate of Compliance</h3>
 
           <div className="grid grid-cols-4 ">
-            <p>Type of Work: </p>
+            <p className="font-bold text-sm">Type of Work: </p>
 
             {checkboxStates.slice(0, 3).map((checkboxStates, index) => (
               <div key={`checkbox-${index}`}>
@@ -139,7 +132,9 @@ function Form() {
               </div>
             ))}
 
-            <p>The Prescribed Electrical Work is:</p>
+            <p className="font-bold text-sm">
+              The Prescribed Electrical Work is:
+            </p>
             {checkboxStates.slice(3, 6).map((checkboxStates, index) => (
               <div key={`checkbox-${index + 3}`}>
                 <input
@@ -155,9 +150,100 @@ function Form() {
               </div>
             ))}
           </div>
+          <input
+            className="border border-gray-300 rounded-lg my-2  text-left w-full"
+            type="text"
+            placeholder="High Risk Work Description"
+            name="hrWork"
+          />
+          <div className="flex flex-row  space-x-4 ">
+            <p className="font-bold">Means of Compliance:</p>
+            {checkboxStates.slice(6, 8).map((checkboxStates, index) => (
+              <div key={`checkbox-${index + 6}`}>
+                <input
+                  type="checkbox"
+                  name={`checkbox-${index + 6}`}
+                  id={`checkbox-${index + 6}`}
+                  checked={checkboxStates}
+                  onChange={() => handleCheckboxChange(index + 6)}
+                />
+                <label htmlFor={`checkbox-${index + 6}`}>
+                  {labels[index + 6]}
+                </label>
+              </div>
+            ))}
+          </div>
+          <div>
+            <div className="flex flex-row  space-x-3 ">
+              <p className="font-bold">
+                Additional Standards or electrical code of practice were
+                required:
+              </p>
+              {checkboxStates.slice(8, 10).map((checkboxStates, index) => (
+                <div key={`checkbox-${index + 8}`}>
+                  <input
+                    type="checkbox"
+                    name={`checkbox-${index + 8}`}
+                    id={`checkbox-${index + 8}`}
+                    checked={checkboxStates}
+                    onChange={() => handleCheckboxChange(index + 8)}
+                  />
+                  <label htmlFor={`checkbox-${index + 8}`}>
+                    {labels[index + 8]}
+                  </label>
+                </div>
+              ))}
+              <p>Speicify:</p>
+              <input
+                className="border border-gray-300 rounded-lg  text-left w-1/4"
+                type="text"
+                placeholder="Additional Standards"
+                name="standards"
+              />
+            </div>
+          </div>
+          <div className="flex flex-row justify-between mt-2">
+            <p className="font-bold">
+              Date or range of dates that prescribed electrical work undertaken:
+            </p>
+            <input
+              className="border border-gray-300 rounded-lg  text-left w-1/4 mr-[7.3%]"
+              type="text"
+              placeholder="Date Range"
+              name="dateRange"
+            />
+          </div>
+          <div className="flex flex-row  space-x-3 ">
+            <p className="font-bold">
+              Contains fittings that are safe to connect to a power supply?
+            </p>
+            {checkboxStates.slice(10, 12).map((checkboxStates, index) => (
+              <div key={`checkbox-${index + 10}`} className="">
+                <input
+                  type="checkbox"
+                  name={`checkbox-${index + 10}`}
+                  id={`checkbox-${index + 10}`}
+                  checked={checkboxStates}
+                  onChange={() => handleCheckboxChange(index + 10)}
+                />
+                <label htmlFor={`checkbox-${index + 10}`}>
+                  {labels[index + 10]}
+                </label>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-row justify-between">
+            <p className="font-bold">Specify type of supply system:</p>
+            <input
+              className="border border-gray-300 rounded-lg  text-left w-2/3"
+              type="text"
+              placeholder="Type of Supply System"
+              name="supplySystem"
+            />
+          </div>
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center space-x-5">
           <button
             type="submit"
             className="px-6 py-2 my-8 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
