@@ -7,6 +7,8 @@ export interface FormValues {
     regNum: number
     phoneNum: number
     email: string
+    aeName: string
+    aeRegNum: number
   }
-  isChecked: boolean
+  checkboxStates: boolean[]
 }

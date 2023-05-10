@@ -1,10 +1,10 @@
 import { Document, Page, Text, pdf, View } from '@react-pdf/renderer'
 import { FormValues } from '../models'
 import { styles } from '../formstyles'
-function PdfDocument({ data, isChecked }: FormValues) {
+function PdfDocument({ data, checkboxStates }: FormValues) {
   return (
     <Document>
-      <Page style={styles.page}>
+      <Page>
         <Text>Referance/Certificate ID No: {data.ref}</Text>
         <Text>Location Details: {data.location}</Text>
         <Text>Contact Details: {data.contact}</Text>
@@ -12,16 +12,20 @@ function PdfDocument({ data, isChecked }: FormValues) {
         <Text>Registration/Practising licence number: {data.regNum}</Text>
         <Text>Electricians Phone Number: {data.phoneNum}</Text>
         <Text>Electricians Email Address: {data.email}</Text>
-        <View
-          style={{
-            width: 10,
-            height: 10,
-            marginRight: 5,
-            borderRadius: 1,
-            borderWidth: 1,
-            backgroundColor: isChecked ? 'black' : 'white',
-          }}
-        />
+        <Text>Name of Electricial Helper: {data.aeName}</Text>
+        <Text>Electricial Helper Registration Number: {data.aeRegNum}</Text>
+        <View style={{ flexDirection: 'row' }}>
+          <Text>Type of Work:</Text>
+          {checkboxStates.slice(0, 3).map((isChecked, index) => (
+    <View
+      key={`checkbox-${index}`}
+      style={{
+        ...styles.checkbox,
+        backgroundColor: isChecked ? 'black' : 'white',
+      }}
+    />
+  ))}
+        </View>
       </Page>
     </Document>
   )
