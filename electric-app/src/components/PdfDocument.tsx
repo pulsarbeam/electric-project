@@ -115,6 +115,8 @@ function PdfDocument({ data, checkboxStates }: FormValues) {
             }}
           />
         ))}
+        <Text>Identify: {data.identify1}</Text>
+        <Text>Link: {data.link1}</Text>
         <Text>
           The work has been done in accordance with a certified design:
         </Text>
@@ -127,6 +129,8 @@ function PdfDocument({ data, checkboxStates }: FormValues) {
             }}
           />
         ))}
+        <Text>Identify: {data.identify2}</Text>
+        <Text>Link: {data.link2}</Text>
         <Text>
           The work relies on a Supplier Declaration of Conformity (SDoC):
         </Text>
@@ -139,19 +143,43 @@ function PdfDocument({ data, checkboxStates }: FormValues) {
             }}
           />
         ))}
+        <Text>Identify: {data.identify3}</Text>
+        <Text>Link: {data.link3}</Text>
+
         <Text>
           The installation has been satisfactorily tested in accordance with the
-          Electricity (Safety) Regulations 2010
+          Electricity (Safety) Regulations 2018:
+          {checkboxStates.slice(22, 24).map((isChecked, index) => (
+            <View
+              key={`checkbox-${index}`}
+              style={{
+                ...styles.checkbox,
+                backgroundColor: isChecked ? 'black' : 'white',
+              }}
+            />
+          ))}
         </Text>
-        {checkboxStates.slice(22, 24).map((isChecked, index) => (
-          <View
-            key={`checkbox-${index}`}
-            style={{
-              ...styles.checkbox,
-              backgroundColor: isChecked ? 'black' : 'white',
-            }}
-          />
-        ))}
+        <Text>Description of Work: {data.description}</Text>
+        <Text>Test Results</Text>
+        <Text>Polarity (Independant Earth): {data.polarity}</Text>
+        <Text>Insulation Resistance: {data.resistance}</Text>
+        <Text>Earth Continuity: {data.continuity}</Text>
+        <Text>Bonding: {data.bonding}</Text>
+        <Text>Fault Loop Impedance: {data.fault}</Text>
+        <Text>Other(Specify): {data.other}</Text>
+        <Text>
+          By signing this document I certify that the completed prescribed
+          electrical work to which this Certificate of Compliance applies has
+          been done lawfully and safely, and the information in the certificate
+          is correct.
+        </Text>
+        <Text>Certifier's Signiture: Fill with signiture</Text>
+
+        <Text>Certifier's Name: {data.certiName}</Text>
+        <Text>Registration/Practising licence number: {data.reg2}</Text>
+        <Text>Certifiers Signiture: To fill</Text>
+        <Text>Certifiers issue Date: {data.certIssue}</Text>
+        <Text>Connection Date: {data.connectDate}</Text>
       </Page>
     </Document>
   )

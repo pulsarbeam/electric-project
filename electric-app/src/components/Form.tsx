@@ -490,7 +490,7 @@ function Form() {
                 Date:
               </p>
               <input
-                className="border border-gray-300 rounded-lg  text-left "
+                className="border border-gray-300 rounded-lg text-left "
                 type="text"
                 placeholder="Date"
                 name="date"
@@ -514,7 +514,7 @@ function Form() {
                     className="border border-gray-300 rounded-lg  text-left py-4"
                     type="text"
                     placeholder="Certifier' Name"
-                    name="certi"
+                    name="certiName"
                   />
                   <p>Registration/Practising licence number:</p>
                   <input

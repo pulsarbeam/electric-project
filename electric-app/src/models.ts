@@ -20,12 +20,18 @@ export interface FormValues {
     link1: string
     link2: string
     link3: string
+    description: string
     polarity: string
     resistance: string
     continuity: string
     bonding: string
     fault: string
     other: string
+    date: string
+    certiName: string
+    reg2: string
+    certIssue: string
+    connectDate: string
   }
   checkboxStates: boolean[]
 }
