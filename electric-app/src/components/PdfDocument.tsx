@@ -77,6 +77,81 @@ function PdfDocument({ data, checkboxStates }: FormValues) {
         ))}
 
         <Text>Specify type of supply system: {data.supplySystem}</Text>
+        <Text>
+          The installation has an earthing system that is correctly rated (where
+          applicable)
+        </Text>
+
+        {checkboxStates.slice(12, 14).map((isChecked, index) => (
+          <View
+            key={`checkbox-${index}`}
+            style={{
+              ...styles.checkbox,
+              backgroundColor: isChecked ? 'black' : 'white',
+            }}
+          />
+        ))}
+        <Text>
+          What parts of the installation are safe to connect to power?
+        </Text>
+        {checkboxStates.slice(14, 16).map((isChecked, index) => (
+          <View
+            key={`checkbox-${index}`}
+            style={{
+              ...styles.checkbox,
+              backgroundColor: isChecked ? 'black' : 'white',
+            }}
+          />
+        ))}
+        <Text>{data.parts}</Text>
+
+        <Text>The work relies on manufacturers instructions:</Text>
+        {checkboxStates.slice(16, 18).map((isChecked, index) => (
+          <View
+            key={`checkbox-${index}`}
+            style={{
+              ...styles.checkbox,
+              backgroundColor: isChecked ? 'black' : 'white',
+            }}
+          />
+        ))}
+        <Text>
+          The work has been done in accordance with a certified design:
+        </Text>
+        {checkboxStates.slice(18, 20).map((isChecked, index) => (
+          <View
+            key={`checkbox-${index}`}
+            style={{
+              ...styles.checkbox,
+              backgroundColor: isChecked ? 'black' : 'white',
+            }}
+          />
+        ))}
+        <Text>
+          The work relies on a Supplier Declaration of Conformity (SDoC):
+        </Text>
+        {checkboxStates.slice(20, 22).map((isChecked, index) => (
+          <View
+            key={`checkbox-${index}`}
+            style={{
+              ...styles.checkbox,
+              backgroundColor: isChecked ? 'black' : 'white',
+            }}
+          />
+        ))}
+        <Text>
+          The installation has been satisfactorily tested in accordance with the
+          Electricity (Safety) Regulations 2010
+        </Text>
+        {checkboxStates.slice(22, 24).map((isChecked, index) => (
+          <View
+            key={`checkbox-${index}`}
+            style={{
+              ...styles.checkbox,
+              backgroundColor: isChecked ? 'black' : 'white',
+            }}
+          />
+        ))}
       </Page>
     </Document>
   )

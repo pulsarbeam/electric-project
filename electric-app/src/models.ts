@@ -13,6 +13,19 @@ export interface FormValues {
     standards: string
     dateRange: string
     supplySystem: string
+    parts: string
+    identify1: string
+    identify2: string
+    identify3: string
+    link1: string
+    link2: string
+    link3: string
+    polarity: string
+    resistance: string
+    continuity: string
+    bonding: string
+    fault: string
+    other: string
   }
   checkboxStates: boolean[]
 }
