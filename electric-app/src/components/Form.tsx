@@ -115,7 +115,7 @@ function Form() {
               />
             </div>
           </div>
-          <div className="border-2 border-slate-400 rounded-xl p-3  my-5 m">
+          <div className="border-2 border-slate-400 rounded-xl p-3  my-5">
             <h3 className="text-xl font-bold">Certificate of Compliance</h3>
 
             <div className="grid grid-cols-4 ">
@@ -493,12 +493,69 @@ function Form() {
                 className="border border-gray-300 rounded-lg  text-left "
                 type="text"
                 placeholder="Date"
-                name="other"
+                name="date"
               />
             </div>
           </div>
-          <div>
+
+          <div className="border-2 border-slate-400 rounded-xl p-3  my-5">
             <p className="font-bold text-xl">Electrical Safety Certificate</p>
+            <div>
+              <p className="font-medium">
+                By signing this document I certify that the installation, or
+                part of the installation, to which this Electrical Safety
+                Certificate applies is connected to a power supply and is safe
+                to use.
+              </p>
+              <div className="flex flex-row flex-wrap justify-around ">
+                <div>
+                  <p>Certifiers Name:</p>
+                  <input
+                    className="border border-gray-300 rounded-lg  text-left py-4"
+                    type="text"
+                    placeholder="Certifier' Name"
+                    name="certi"
+                  />
+                  <p>Registration/Practising licence number:</p>
+                  <input
+                    className="border border-gray-300 rounded-lg  text-left py-4"
+                    type="text"
+                    placeholder="Registration Number"
+                    name="reg2"
+                  />
+                </div>
+                <div>
+                  <p>Certifier’s signature:</p>
+                  <div className="bg-slate-300 max-w-[200px] max-h-[50px] rounded-xl flex flex-row">
+                    <SignatureCanvas
+                      penColor="black"
+                      canvasProps={{
+                        width: 200,
+                        height: 50,
+                      }}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <p>Certificate Issue Date:</p>
+                  <input
+                    className="border border-gray-300 rounded-lg  text-left py-4"
+                    type="text"
+                    placeholder="Certificate Issue Date"
+                    name="certIssue"
+                  />
+                </div>
+                <div>
+                  <p>Connection Date:</p>
+                  <input
+                    className="border border-gray-300 rounded-lg  text-left py-4"
+                    type="text"
+                    placeholder="Connection Date"
+                    name="connectDate"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="flex justify-center space-x-5">
