@@ -51,7 +51,7 @@ function Form() {
             <input
               className="border border-gray-300 rounded-lg p-2 text-left w-full"
               type="text"
-              placeholder=" Enter Reference Number"
+              placeholder=" Enter Reference Numbers! e.g. 1234/2021"
               name="ref"
             />
 
