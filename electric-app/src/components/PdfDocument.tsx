@@ -59,7 +59,7 @@ function PdfDocument({ data, checkboxStates }: FormValues) {
             key={`checkbox-${index}`}
             style={{
               ...styles.checkbox,
-              backgroundColor: isChecked ? 'black' : 'white',
+              backgroundColor: isChecked ? 'gray' : 'white',
             }}
           />
         ))}
