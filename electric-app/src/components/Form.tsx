@@ -7,6 +7,23 @@ import { FormValues } from '../models'
 import { labels } from '../labels'
 
 function Form() {
+  const canvasRef2 = useRef(null)
+  const [signatureData2, setSignatureData2] = useState(null)
+  const handleSignature2 = () => {
+    if (canvasRef2.current) {
+      const dataUrl = canvasRef2.current.toDataURL()
+      setSignatureData2(dataUrl)
+    }
+  }
+  const canvasRef1 = useRef(null)
+  const [signatureData1, setSignatureData1] = useState(null)
+  const handleSignature1 = () => {
+    if (canvasRef1.current) {
+      const dataUrl = canvasRef1.current.toDataURL()
+      setSignatureData1(dataUrl)
+    }
+  }
+
   const formRef = useRef<HTMLFormElement>(null)
 
   const [checkboxStates, setCheckboxStates] = useState(
@@ -21,7 +38,7 @@ function Form() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    console.log(checkboxStates)
+
     if (!formRef.current?.checkValidity()) {
       return
     }
@@ -30,7 +47,14 @@ function Form() {
     const data = Object.fromEntries(
       formData.entries()
     ) as unknown as FormValues['data']
-    const pdfDoc = <PdfDocument data={data} checkboxStates={checkboxStates} />
+    const pdfDoc = (
+      <PdfDocument
+        data={data}
+        checkboxStates={checkboxStates}
+        signatureData1={signatureData1}
+        signatureData2={signatureData2}
+      />
+    )
     const blob = await pdf(pdfDoc).toBlob()
 
     const url = URL.createObjectURL(blob)
@@ -51,7 +75,7 @@ function Form() {
             <input
               className="border border-gray-300 rounded-lg p-2 text-left w-full"
               type="text"
-              placeholder=" Enter Reference Numbers! e.g. 1234/2021"
+              placeholder=" Enter Reference Numbers e.g. 1234/2023"
               name="ref"
             />
 
@@ -484,6 +508,8 @@ function Form() {
                     width: 200,
                     height: 50,
                   }}
+                  ref={canvasRef1}
+                  onEnd={handleSignature1}
                 />
               </div>
               <p className="font-bold flex items-center justify-end space-x-3">
@@ -533,6 +559,8 @@ function Form() {
                         width: 200,
                         height: 50,
                       }}
+                      ref={canvasRef2}
+                      onEnd={handleSignature2}
                     />
                   </div>
                 </div>
