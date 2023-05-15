@@ -10,22 +10,31 @@ function PdfDocument({
   signatureData1,
 }: FormValues) {
   return (
-    <Document>
+    <Document style={styles.document}>
       <Page style={styles.page}>
+        <Text style={styles.center}>
+          Electrical Certificate of Compliance & Electrical Safety Certificate
+        </Text>
         <Text style={styles.ref}>
           Referance/Certificate ID No:{' '}
-          <Text style={styles.document}>{data.ref}</Text>{' '}
+          <Text style={styles.bold}>{data.ref}</Text>{' '}
         </Text>
 
-        <Text>Location Details: {data.location}</Text>
-        <Text>Contact Details: {data.contact}</Text>
-        <Text>Name of Electrical Worker: {data.worker}</Text>
-        <Text>Registration/Practising licence number: {data.regNum}</Text>
-        <Text>Electricians Phone Number: {data.phoneNum}</Text>
-        <Text>Electricians Email Address: {data.email}</Text>
-        <Text>Name of Electricial Helper: {data.aeName}</Text>
-        <Text>Electricial Helper Registration Number: {data.aeRegNum}</Text>
-        <View style={{ flexDirection: 'row' }}>
+        <Text style={styles.location}>Location Details: {data.location}</Text>
+        <Text style={styles.customer}>Contact Details: {data.contact}</Text>
+        <View style={styles.electrical}>
+          <Text>Name of Electrical Worker: {data.worker}</Text>
+          <Text>Practising licence number: {data.regNum}</Text>
+          <Text>
+            Electricians Phone Number & Email: {data.phoneNum} {data.email}
+          </Text>
+
+          <Text>
+            Supervised Person Name & Registraion : {data.aeName} {data.aeRegNum}
+          </Text>
+        </View>
+        <Text style={styles.bold}>Certificate Of Compliance</Text>
+        <View>
           <Text>Type of Work: </Text>
           {checkboxStates.slice(0, 3).map((isChecked, index) => (
             <>
@@ -193,7 +202,7 @@ function PdfDocument({
           Electricity (Safety) Regulations 2018:
           {checkboxStates.slice(22, 24).map((isChecked, index) => (
             <>
-              <View key={`checkbox-${index}`} style={styles.checkboxContainer}>
+              <View key={`checkbox-${index}`}>
                 <View
                   style={{
                     ...styles.checkbox,

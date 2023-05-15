@@ -33,5 +33,7 @@ export interface FormValues {
     certIssue: string
     connectDate: string
   }
+  signatureData1: null | string
+  signatureData2: null | string
   checkboxStates: boolean[]
 }

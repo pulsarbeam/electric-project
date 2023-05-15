@@ -1,22 +1,23 @@
 import { useRef, useState } from 'react'
 import { pdf } from '@react-pdf/renderer'
 import SignatureCanvas from 'react-signature-canvas'
+import ReactSignatureCanvas from 'react-signature-canvas'
 
 import PdfDocument from './PdfDocument'
 import { FormValues } from '../models'
 import { labels } from '../labels'
 
 function Form() {
-  const canvasRef2 = useRef(null)
-  const [signatureData2, setSignatureData2] = useState(null)
+  const canvasRef2 = useRef<ReactSignatureCanvas>(null)
+  const [signatureData2, setSignatureData2] = useState<null | string>(null)
   const handleSignature2 = () => {
     if (canvasRef2.current) {
       const dataUrl = canvasRef2.current.toDataURL()
       setSignatureData2(dataUrl)
     }
   }
-  const canvasRef1 = useRef(null)
-  const [signatureData1, setSignatureData1] = useState(null)
+  const canvasRef1 = useRef<ReactSignatureCanvas>(null)
+  const [signatureData1, setSignatureData1] = useState<null | string>(null)
   const handleSignature1 = () => {
     if (canvasRef1.current) {
       const dataUrl = canvasRef1.current.toDataURL()
