@@ -13,41 +13,68 @@ function PdfDocument({
     <Document style={styles.document}>
       <Page style={styles.page}>
         <Text style={styles.center}>
+        
           Electrical Certificate of Compliance & Electrical Safety Certificate
         </Text>
+
         <Text style={styles.ref}>
-          Referance/Certificate ID No:{' '}
+          Reference/Certificate ID No:{' '}
           <Text style={styles.bold}>{data.ref}</Text>{' '}
         </Text>
 
-        <Text style={styles.location}>Location Details: {data.location}</Text>
-        <Text style={styles.customer}>Contact Details: {data.contact}</Text>
+        <Text style={styles.location}>
+          Location Details: <Text style={styles.value}>{data.location}</Text>
+        </Text>
+        <Text style={styles.customer}>
+          Contact Details: <Text style={styles.value}>{data.contact}</Text>
+        </Text>
         <View style={styles.electrical}>
-          <Text>Name of Electrical Worker: {data.worker}</Text>
-          <Text>Practising licence number: {data.regNum}</Text>
-          <Text>
-            Electricians Phone Number & Email: {data.phoneNum} {data.email}
+          <Text style={styles.label}>
+            Name of Electrical Worker:{' '}
+            <Text style={styles.value}>{data.worker} </Text>
           </Text>
-
-          <Text>
-            Supervised Person Name & Registraion : {data.aeName} {data.aeRegNum}
+          <Text style={styles.label}>
+            Practising licence number:{' '}
+            <Text style={styles.value}>{data.regNum}</Text>
           </Text>
         </View>
+        <View style={styles.electricalhelp}>
+          <Text style={styles.label}>
+            Electricians Phone Number & Email:{' '}
+            <Text style={styles.value}>{data.phoneNum} </Text>
+            <Text style={styles.value}> {data.email}</Text>
+          </Text>
+
+          <Text style={styles.label}>
+            Supervised Person Name & Registraion:{' '}
+            <Text style={styles.value}>{data.aeName} </Text>
+            <Text style={styles.value}> {data.aeRegNum}</Text>
+          </Text>
+        </View>
+
         <Text style={styles.bold}>Certificate Of Compliance</Text>
         <View>
           <Text>Type of Work: </Text>
-          {checkboxStates.slice(0, 3).map((isChecked, index) => (
-            <>
+          <View style={styles.electrical}>
+            {checkboxStates.slice(0, 3).map((isChecked, index) => (
               <View
                 key={`checkbox-${index}`}
                 style={{
-                  ...styles.checkbox,
-                  backgroundColor: isChecked ? 'black' : 'white',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginRight: 10,
                 }}
-              />
-              <Text>{labels[index]}</Text>
-            </>
-          ))}
+              >
+                <View
+                  style={{
+                    ...styles.checkbox,
+                    backgroundColor: isChecked ? 'black' : 'white',
+                  }}
+                />
+                <Text>{labels[index]}</Text>
+              </View>
+            ))}
+          </View>
 
           <Text>The Prescribed Electrical Work is: </Text>
           {checkboxStates.slice(3, 6).map((isChecked, index) => (
@@ -56,6 +83,8 @@ function PdfDocument({
                 key={`checkbox-${index}`}
                 style={{
                   ...styles.checkbox,
+
+        
                   backgroundColor: isChecked ? 'black' : 'white',
                 }}
               />

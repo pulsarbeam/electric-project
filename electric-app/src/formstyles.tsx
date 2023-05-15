@@ -9,17 +9,22 @@ Font.register({
   family: 'Poppins-Bold',
   src: './fonts/Poppins-Bold.ttf',
 })
+Font.register({
+  family: 'Poppins-Med',
+  src: './fonts/Poppins-Medium.ttf',
+})
 
 export const styles = StyleSheet.create({
   document: {
     fontFamily: 'Poppins-Regular',
     fontSize: 12,
     size: 'A4',
+    padding: 5,
   },
   bold: {
     fontFamily: 'Poppins-Bold',
   },
-  page: { margin: 5 },
+  page: { margin: 20 },
   center: {
     textAlign: 'center',
     fontFamily: 'Poppins-Bold',
@@ -27,35 +32,42 @@ export const styles = StyleSheet.create({
   ref: {
     marginRight: 200,
     textAlign: 'center',
-
     padding: 3,
   },
-  customer: {
-    marginRight: 400,
-    textAlign: 'center',
-  },
   location: {
-    marginRight: 400,
-    textAlign: 'center',
     paddingTop: 7,
-  },
+    fontFamily: 'Poppins-Med',
 
+  },
+  customer: {
+    paddingTop: 5,
+    fontFamily: 'Poppins-Med',
+  },
   electrical: {
     paddingTop: 10,
-    padding: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
-
-    marginRight: 110,
+    marginRight: 50,
+  },
+  electricalhelp: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    marginRight: 50,
   },
   section: { color: 'white', textAlign: 'center', margin: 30 },
-
   checkbox: {
     width: 10,
     height: 10,
     marginRight: 5,
     borderRadius: 1,
     borderWidth: 1,
+  },
+  label: {
+    fontFamily: 'Poppins-Med',
+  },
+  value: {
+    fontFamily: 'Poppins-Regular',
   },
 })
