@@ -63,13 +63,16 @@ function Form() {
   }
 
   return (
+    
     <div>
       <div className="flex flex-col justify-center rounded-div">
+      
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="rounded-lg bg-white p-10"
+          className="rounded-lg  p-10 bg-slate-200"
         >
+         
           <div className="grid grid-cols-1 gap-8">
             {/* Referacne number and client details */}
 
@@ -596,7 +599,8 @@ function Form() {
             </button>
           </div>
         </form>
-      </div>
+          </div>
+      
     </div>
   )
 }

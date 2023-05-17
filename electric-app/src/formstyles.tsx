@@ -37,7 +37,6 @@ export const styles = StyleSheet.create({
   location: {
     paddingTop: 7,
     fontFamily: 'Poppins-Med',
-
   },
   customer: {
     paddingTop: 5,
@@ -69,5 +68,14 @@ export const styles = StyleSheet.create({
   },
   value: {
     fontFamily: 'Poppins-Regular',
+  },
+  colon: {
+    width: 10,
+  },
+  word: {
+    width: 200,
+  },
+  med: {
+    fontFamily: 'Poppins-Med',
   },
 })
